@@ -23,13 +23,12 @@ export const Courses = () => {
   const uniqueTags = [allCourses, ...new Set(tags)];
 
   const filerByTag = (tag: string) => {
+    let filtered = [...courseCards];
     if (tag === allCourses) {
-      setFiltredCards(courseCards);
+      setFiltredCards(filtered);
     } else {
-      setFiltredCards(courseCards);
-      setFiltredCards((filtredCards) =>
-        filtredCards.filter((card) => card.tags.includes(tag))
-      );
+      filtered = filtered.filter((card) => card.tags.includes(tag));
+      setFiltredCards(filtered);
     }
   };
 
@@ -37,17 +36,19 @@ export const Courses = () => {
     <div
       style={{
         width: "100vw",
+        minHeight: "100vh",
         display: "flex",
         flexDirection: "row",
         padding: "24px",
         margin: "0 auto",
+        overflow: "auto",
       }}
     >
-      <div>
+      <div style={{ position: "fixed" }}>
         <MenuList uniqueTags={uniqueTags} onClick={filerByTag} />
       </div>
 
-      <div>
+      <div style={{ marginRight: "20px", position: "absolute", right: 0 }}>
         <CourseCards courseCards={filtredCards} />
       </div>
     </div>
