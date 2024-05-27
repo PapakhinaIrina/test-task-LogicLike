@@ -1,29 +1,11 @@
+import { FC } from "react";
 import { MenuItem } from "../../features/menu/lib/menuItem";
 
-export const MenuList = () => {
-  const menuItems = [
-    {
-      id: "1",
-      title: "Все типы",
-    },
-    {
-      id: "2",
-      title: "Логика и мышление",
-    },
-    {
-      id: "3",
-      title: "Загадки",
-    },
-    {
-      id: "4",
-      title: "Головоломки",
-    },
-    {
-      id: "5",
-      title: "Путешествия",
-    },
-  ];
-
+interface IMenuListProps {
+  uniqueTags: string[];
+  onClick: (item: string) => void;
+}
+export const MenuList: FC<IMenuListProps> = ({ uniqueTags, onClick }) => {
   return (
     <div
       style={{
@@ -33,17 +15,16 @@ export const MenuList = () => {
         padding: 16,
         gap: 8,
         border: "1px solid rgb(202, 202, 223)",
-        borderRadius: 20,
+        borderRadius: "20px",
+        marginRight: "24px",
       }}
     >
-      {menuItems.length &&
-        menuItems.map((item) => (
+      {uniqueTags.length &&
+        uniqueTags.map((item, index) => (
           <MenuItem
-            key={item.id}
+            key={`${item}-${index}`}
             children={item}
-            onClick={() => {
-              console.log(item);
-            }}
+            onClick={() => onClick(item)}
           />
         ))}
     </div>

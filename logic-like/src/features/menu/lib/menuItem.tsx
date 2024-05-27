@@ -1,13 +1,8 @@
 import { FC } from "react";
 import Button from "@mui/material/Button";
 
-type Children = {
-  id: string;
-  title: string;
-};
-
 type MenuItemProps = {
-  children: Children;
+  children: string | JSX.Element;
   onClick: () => void;
 };
 
@@ -32,7 +27,7 @@ export const MenuItem: FC<MenuItemProps> = ({ children, onClick }) => {
         },
       }}
     >
-      {children.title}
+      {children}
     </Button>
   );
 };
