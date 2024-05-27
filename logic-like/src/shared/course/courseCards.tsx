@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { CourseCard } from "../../features/menu/lib/courseCard";
+import { CourseCard } from "../../features/cards/courseCard";
 import { Course } from "../api/models/Cards";
 
 interface ICourseCardsProps {
