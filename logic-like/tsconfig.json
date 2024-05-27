@@ -6,6 +6,7 @@
       "dom.iterable",
       "esnext"
     ],
+
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -22,5 +23,11 @@
   },
   "include": [
     "src"
-  ]
+, "src/index.tsx"  ],
+  "paths": {
+    "@entities/*": ["src/lib/entities/*"],
+    "@shared/*": ["src/lib/shared/*"],
+    "@widgets/*": ["src/lib/widgets/*"],
+    "@features/*": ["src/lib/features/*"],
+  }
 }
